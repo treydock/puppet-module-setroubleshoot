@@ -1,0 +1,36 @@
+{
+  "name": "treydock-setroubleshoot",
+  "version": "0.0.1",
+  "author": "treydock",
+  "summary": "setroubleshoot module",
+  "license": "Apache License, Version 2.0",
+  "source": "git://github.com/treydock/puppet-module-setroubleshoot.git",
+  "description": "setroubleshoot module",
+  "issues_url": "https://github.com/treydock/puppet-module-setroubleshoot/issues",
+  "project_page": "http://github.com/treydock/puppet-module-setroubleshoot",
+  "tags": [ "setroubleshoot", "selinux", "centos", "redhat" ],
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "RedHat",
+      "operatingsystemrelease": [ "6", "7" ]
+    },
+    {
+      "operatingsystem": "CentOS",
+      "operatingsystemrelease": [ "6", "7" ]
+    },
+    {
+      "operatingsystem": "Scientific",
+      "operatingsystemrelease": [ "6", "7" ]
+    }
+  ],
+  "dependencies": [
+    {
+      "name": "puppetlabs-stdlib",
+      "version_requirement": ">= 2.2.1"
+    },
+    {
+      "name": "puppetlabs-inifile",
+      "version_requirement": ">= 1.0.0"
+    }
+  ]
+}
