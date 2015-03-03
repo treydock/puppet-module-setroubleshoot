@@ -14,7 +14,7 @@
 
 ## Overview
 
-This module manages SETroubleshoot and enables configuration of notifications upon AVC denials.
+This module manages SELinux troubleshoot server and enables configuration of notifications upon AVC denials.
 
 ## Usage
 
@@ -28,6 +28,16 @@ The default behavior ensures the following:
 Example:
 
     class { 'setroubleshoot': }
+
+To define addresses that receive AVC denial alerts:
+
+    class { 'setroubleshoot':
+      email_recipients => {
+        'foo@example.com' => {
+          'filter_type' => 'after_first'
+        }
+      }
+    }
 
 ## Reference
 
@@ -87,6 +97,14 @@ A Hash that defines additional setroubleshoot_config resources.  Default is an e
 #####`email_recipients`
 
 A Hash that defines email recipients to receive setroubleshoot notifications.  Default is an empty Hash.
+
+The format of the hash is like the following:
+
+    'foo@example.com' => {
+      'filter_type' => 'after_first'
+    }
+
+The key is the email address and the value is a Hash containing the config options.   Currently only the option `filter_type` is supported.  If `filter_type` is not set the default value of `after_first` is used.
 
 ## Limitations
 
