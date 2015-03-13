@@ -15,7 +15,7 @@ shared_examples 'setroubleshoot::config' do
       :path   => '/var/lib/setroubleshoot/email_alert_recipients',
       :owner  => 'root',
       :group  => 'root',
-      :mode   => '0644',
+      :mode   => '0600',
     })
   end
 

@@ -18,7 +18,7 @@ class setroubleshoot::config {
       path    => $setroubleshoot::email_recipients_filepath,
       owner   => 'root',
       group   => 'root',
-      mode    => '0644',
+      mode    => '0600',
       content => template('setroubleshoot/email_alert_recipients.erb'),
     }
 
