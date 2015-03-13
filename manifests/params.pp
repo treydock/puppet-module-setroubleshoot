@@ -7,6 +7,7 @@ class setroubleshoot::params {
   case $::osfamily {
     'RedHat': {
       $package_name               = 'setroubleshoot-server'
+      $service_name               = 'setroubleshootd'
       $config_path                = '/etc/setroubleshoot/setroubleshoot.conf'
       $email_recipients_filepath  = '/var/lib/setroubleshoot/email_alert_recipients'
       $email_smtp_port            = '25'

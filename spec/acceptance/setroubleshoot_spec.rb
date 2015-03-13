@@ -19,5 +19,15 @@ describe 'setroubleshoot class:' do
       its(:content) { should match /^smtp_host = localhost$/ }
       its(:content) { should match /^from_address = SELinux_Troubleshoot$/ }
     end
+
+    describe service('messagebus') do
+      it { should be_running }
+      it { should be_enabled }
+    end
+
+    describe service('auditd') do
+      it { should be_running }
+      it { should be_enabled }
+    end
   end
 end

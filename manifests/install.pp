@@ -7,6 +7,7 @@ class setroubleshoot::install {
   package { 'setroubleshoot':
     ensure => $setroubleshoot::package_ensure_real,
     name   => $setroubleshoot::params::package_name,
+    notify => $setroubleshoot::package_notify,
   }
 
 }

@@ -10,6 +10,7 @@
 #
 class setroubleshoot (
   $ensure                     = 'present',
+  $manage_services            = true,
   $package_ensure             = undef,
   $package_name               = $setroubleshoot::params::package_name,
   $config_path                = $setroubleshoot::params::config_path,
@@ -20,6 +21,10 @@ class setroubleshoot (
   $setroubleshoot_configs     = $setroubleshoot::params::setroubleshoot_configs,
   $email_recipients           = $setroubleshoot::params::email_recipients,
 ) inherits setroubleshoot::params {
+
+  validate_bool(
+    $manage_services,
+  )
 
   validate_string(
     $package_name,
@@ -49,12 +54,20 @@ class setroubleshoot (
 
   $package_ensure_real = pick($package_ensure, $package_ensure_default)
 
+  if $manage_services {
+    $package_notify = Service['auditd']
+  } else {
+    $package_notify = undef
+  }
+
   include setroubleshoot::install
   include setroubleshoot::config
+  include setroubleshoot::service
 
   anchor { 'setroubleshoot::start': }->
   Class['setroubleshoot::install']->
   Class['setroubleshoot::config']->
+  Class['setroubleshoot::service']->
   anchor { 'setroubleshoot::end': }
 
 }

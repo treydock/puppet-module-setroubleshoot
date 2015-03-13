@@ -51,6 +51,7 @@ To define addresses that receive AVC denial alerts:
 
 * `setroubleshoot::install`: Installs setroubleshoot-server package.
 * `setroubleshoot::config`: Configures setroubleshoot.
+* `setroubleshoot::service`: Manage services necessary to use setroubleshoot
 * `setroubleshoot::params`: Sets parameter defaults based on fact values.
 
 ### Parameters
@@ -61,6 +62,11 @@ To define addresses that receive AVC denial alerts:
 
 Sets the ensure behavior of this module.  Valid values are `present` and `absent`.
 A value of `present` is default.  A value of `absent` will remove the setroubleshoot-server package.
+
+#####`manage_services`
+
+Boolean that determines if this module will manage the messagebus and auditd services necessary to use setroubleshoot's notification features.
+Default is `true`
 
 #####`package_ensure`
 
