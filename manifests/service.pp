@@ -12,7 +12,7 @@ class setroubleshoot::service {
     service { 'auditd':
       ensure   => 'running',
       enable   => true,
-      provider => 'service',
+      provider => 'redhat',
     }
   }
 

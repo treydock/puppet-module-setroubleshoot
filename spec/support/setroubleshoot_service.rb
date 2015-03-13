@@ -11,7 +11,7 @@ shared_examples 'setroubleshoot::service' do
     should contain_service('auditd').with({
       :ensure   => 'running',
       :enable   => 'true',
-      :provider => 'service',
+      :provider => 'redhat',
     })
   end
 
