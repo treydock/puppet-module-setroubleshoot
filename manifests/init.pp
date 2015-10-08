@@ -55,7 +55,11 @@ class setroubleshoot (
   $package_ensure_real = pick($package_ensure, $package_ensure_default)
 
   if $manage_services {
-    $package_notify = Service['auditd']
+    if $ensure == 'present' {
+      $package_notify = Service['auditd']
+    } else {
+      $package_notify = undef
+    }
   } else {
     $package_notify = undef
   }
