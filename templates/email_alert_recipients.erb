@@ -1,4 +1,4 @@
-<% @email_recipients.keys.sort.each do |recipient| -%>
-<% filter_type = @email_recipients[recipient]['filter_type'] || 'after_first' -%>
+<% scope.lookupvar('setroubleshoot::email_recipients').keys.sort.each do |recipient| -%>
+<% filter_type = scope.lookupvar('setroubleshoot::email_recipients')[recipient]['filter_type'] || 'after_first' -%>
 <%= recipient %> filter_type=<%= filter_type %>
 <% end -%>
